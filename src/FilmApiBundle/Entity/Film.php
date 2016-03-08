@@ -3,14 +3,46 @@
 namespace FilmApiBundle\Entity;
 
 use Ramsey\Uuid\Uuid;
+//use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Film
+ *
+ * @ORM\Table(name="film")
+ * @ORM\Entity
+ */
 final class Film
 {
 
+    /**
+     *
+     * @ORM\Column(name="id", type="string", length=255, nullable=false)
+     * @ORM\Id
+     */
     private $id;
+    /**
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @ORM\Id
+     */
     private $name;
+    /**
+     *
+     * @ORM\Column(name="year", type="string", length=255, nullable=false)
+     * @ORM\Id
+     */
     private $year;
+    /**
+     *
+     * @ORM\Column(name="date", type="string", length=255, nullable=false)
+     * @ORM\Id
+     */
     private $date;
+    /**
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=false)
+     * @ORM\Id
+     */
     private $url;
 
     public function __construct($an_id, $a_name, $an_year, $a_date, $an_url)
