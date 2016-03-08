@@ -4,14 +4,17 @@
 namespace FilmApiBundle\Service;
 
 
-final class RemoveFilmUseCase {
+final class RemoveFilmUseCase
+{
 
 
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
-    public function __invoke(){
+    public function __invoke()
+    {
 
     }
 }

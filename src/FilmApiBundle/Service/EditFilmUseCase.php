@@ -4,13 +4,16 @@
 namespace FilmApiBundle\Service;
 
 
-final class EditFilmUseCase {
+final class EditFilmUseCase
+{
 
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
-    public function __invoke(){
+    public function __invoke()
+    {
 
     }
 }

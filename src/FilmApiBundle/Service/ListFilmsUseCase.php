@@ -4,13 +4,16 @@
 namespace FilmApiBundle\Service;
 
 
-final class ListFilmsUseCase {
+final class ListFilmsUseCase
+{
 
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
-    public function __invoke(){
+    public function __invoke()
+    {
 
     }
 }

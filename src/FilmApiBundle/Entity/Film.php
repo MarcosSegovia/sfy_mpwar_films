@@ -2,6 +2,8 @@
 
 namespace FilmApiBundle\Entity;
 
+use Ramsey\Uuid\Uuid;
+
 final class Film
 {
 
@@ -22,7 +24,8 @@ final class Film
 
     public static function register($a_name, $an_year, $a_date, $an_url)
     {
-        $film = new static(0, $a_name, $an_year, $a_date, $an_url);
+        $uuid5 = Uuid::uuid5(Uuid::NAMESPACE_DNS, 'php.net');
+        $film = new static($uuid5->toString(), $a_name, $an_year, $a_date, $an_url);
         return $film;
     }
 
