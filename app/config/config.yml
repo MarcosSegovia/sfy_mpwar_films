@@ -49,11 +49,11 @@ doctrine:
         charset:  UTF8
 
     orm:
-            auto_mapping: true
-            mappings:
-                FilmApiBundle:
-                    type: yml
-                    dir: Resources/config/doctrine
+        auto_mapping: true
+        mappings:
+            FilmApiBundle:
+                type: yml
+                dir: Resources/config/doctrine
 
 # Swiftmailer Configuration
 swiftmailer:
