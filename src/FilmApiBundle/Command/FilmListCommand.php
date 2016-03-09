@@ -20,7 +20,7 @@ class FilmListCommand extends Command
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		$obj_ListfilmUsecase = $this->getContainer()->get('ListfilmUsecase');
-		$obj_ListfilmUsecase();
-		$output->writeln('Fin');
+		$result = $obj_ListfilmUsecase();
+		$output->writeln($result);
 	}
 }
