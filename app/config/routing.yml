@@ -1,3 +1,7 @@
 app:
     resource: "@FilmApiBundle/Controller/"
     type:     annotation
+
+_welcome:
+    path:      /
+    defaults:  { _controller: FilmApiBundle:AddFilm:index }
