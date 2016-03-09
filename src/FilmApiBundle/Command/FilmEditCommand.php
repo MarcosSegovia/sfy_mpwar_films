@@ -15,12 +15,22 @@ class FilmEditCommand extends Command
 			->setName('film:edit')
 			->setDescription('Greet someone')
 			->addArgument(
-				'first_number',
+				'name',
 				InputArgument::REQUIRED,
 				'Enter the first number'
 			)
 			->addArgument(
-				'second_number',
+				'year',
+				InputArgument::REQUIRED,
+				'Enter the second number'
+			)
+			->addArgument(
+				'date',
+				InputArgument::REQUIRED,
+				'Enter the second number'
+			)
+			->addArgument(
+				'url',
 				InputArgument::REQUIRED,
 				'Enter the second number'
 			)
@@ -29,11 +39,13 @@ class FilmEditCommand extends Command
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$firs_number = $input->getArgument('first_number');
-		$second_number = $input->getArgument('second_number');
+		$name = $input->getArgument('name');
+		$year = $input->getArgument('year');
+		$date = $input->getArgument('date');
+		$url = $input->getArgument('url');
 
-		$obj_calculadora = $this->getContainer()->get('calculadora');
-		$result = $obj_calculadora->mult($firs_number,$second_number);
-		$output->writeln($result);
+		$obj_EditFilmUseCase = $this->getContainer()->get('EditFilmUseCase');
+		$obj_EditFilmUseCase($name,$year,$date,$url);
+		$output->writeln('Fet');
 	}
 }
