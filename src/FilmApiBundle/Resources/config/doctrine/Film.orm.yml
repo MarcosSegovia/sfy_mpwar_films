@@ -1,5 +1,6 @@
 FilmApiBundle\Entity\Film:
   type: entity
+  repositoryClass: FilmApiBundle\Repository\FilmRepository
   table: film
   id:
     id:
