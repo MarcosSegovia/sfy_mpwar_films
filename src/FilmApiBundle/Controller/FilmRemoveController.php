@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class FilmRemoveController extends Controller
 {
     /**
-     * @Route("/Film/Remove", name="homepage")
+     * @Route("/film/remove", name="homepage")
      */
     public function indexAction(Request $request)
     {
