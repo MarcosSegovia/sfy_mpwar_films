@@ -12,29 +12,7 @@ class FilmEditCommand extends Command
 	protected function configure()
 	{
 		$this
-			->setName('film:edit')
-			->setDescription('Greet someone')
-			->addArgument(
-				'name',
-				InputArgument::REQUIRED,
-				'Enter the first number'
-			)
-			->addArgument(
-				'year',
-				InputArgument::REQUIRED,
-				'Enter the second number'
-			)
-			->addArgument(
-				'date',
-				InputArgument::REQUIRED,
-				'Enter the second number'
-			)
-			->addArgument(
-				'url',
-				InputArgument::REQUIRED,
-				'Enter the second number'
-			)
-		;
+			->setName('film:edit');
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)

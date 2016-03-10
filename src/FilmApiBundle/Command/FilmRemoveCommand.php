@@ -12,22 +12,15 @@ class FilmRemoveCommand extends Command
 	protected function configure()
 	{
 		$this
-			->setName('film:remove')
-			->setDescription('Greet someone')
-			->addArgument(
-				'id',
-				InputArgument::REQUIRED,
-				'Enter the first number'
-			)
-		;
+			->setName('film:remove');
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$id = $input->getArgument('id');
-
-		$obj_RemoveFilmUseCase= $this->getContainer()->get('RemoveFilmUsecase');
-		$obj_RemoveFilmUseCase($id);
-		$output->writeln('Fet');
+		//$id = $input->getArgument('id');
+		//
+		//$obj_RemoveFilmUseCase= $this->getContainer()->get('RemoveFilmUsecase');
+		//$obj_RemoveFilmUseCase($id);
+		//$output->writeln('Fet');
 	}
 }

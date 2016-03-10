@@ -12,15 +12,13 @@ class FilmListCommand extends Command
 	protected function configure()
 	{
 		$this
-			->setName('film:list')
-			->setDescription('Greet someone')
-		;
+			->setName('film:list');
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$obj_ListfilmUsecase = $this->getContainer()->get('ListfilmUsecase');
-		$result = $obj_ListfilmUsecase();
-		$output->writeln($result);
+		//$obj_ListfilmUsecase = $this->getContainer()->get('ListfilmUsecase');
+		//$result = $obj_ListfilmUsecase();
+		//$output->writeln($result);
 	}
 }
