@@ -4,9 +4,8 @@
 namespace FilmApiBundle\Service;
 
 
-final class RemoveFilmUseCase
+final class ListFilms
 {
-
 
     public function __construct()
     {

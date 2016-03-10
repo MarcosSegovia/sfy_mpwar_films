@@ -4,7 +4,7 @@
 namespace FilmApiBundle\Service;
 
 
-final class EditFilmUseCase
+final class EditFilm
 {
 
     public function __construct()
