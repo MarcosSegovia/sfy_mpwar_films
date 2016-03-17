@@ -3,29 +3,24 @@
 namespace FilmApiBundle\Service;
 
 
-use FilmApiBundle\Entity\Film;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use FilmApiBundle\Listener\AddFilmListener;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use FilmApiBundle\Event\FilmAddedEvent;
 
 
 final class AddFilmUseCase
 {
 
-    private $film;
+    private $dispatcher;
 
-    public function __construct()
+    public function __construct(EventDispatcherInterface $dispatcher)
     {
-
+        $this->dispatcher = $dispatcher;
     }
 
     public function __invoke()
     {
-        $dispatcher = new EventDispatcher();
-        $add_film_listener = new AddFilmListener();
-        $dispatcher->addListener('film.added', array($add_film_listener, 'add'));
-
         $event = new FilmAddedEvent();
-        $dispatcher->dispatch(FilmAddedEvent::NAME, $event);
+        $this->dispatcher->dispatch(FilmAddedEvent::NAME, $event);
     }
+
 }

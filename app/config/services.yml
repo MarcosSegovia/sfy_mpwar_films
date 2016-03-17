@@ -7,6 +7,13 @@ parameters:
 services:
   add_film:
     class: FilmApiBundle\Service\AddFilmUseCase
+    arguments: ["@event_dispatcher"]
+
+  added_film_listener:
+    class: FilmApiBundle\Listener\AddedFilmListener
+    tags:
+        - { name: kernel.event_listener, event: film.added }
+
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
