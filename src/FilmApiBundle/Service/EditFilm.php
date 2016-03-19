@@ -5,6 +5,7 @@ namespace FilmApiBundle\Service;
 
 
 use FilmApiBundle\Entity\FilmRepositoryInterface;
+use FilmApiBundle\Event\FilmEdited;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class EditFilm
@@ -27,6 +28,9 @@ final class EditFilm
         $an_existing_film->setUrl($request->url());
 
         $this->entity_repository->updateFilms();
+
+        $film_edited_event = new FilmEdited();
+        $this->event_dispatcher->dispatch(FilmEdited::NAME, $film_edited_event);
     }
 
 }
