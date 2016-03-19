@@ -14,8 +14,12 @@ class DefaultCommand extends Command
 			->setDescription('Outputs \'Hello World\'');
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(
+		InputInterface $input,
+		OutputInterface $output
+	)
 	{
 		$output->writeln('Hello World');
 	}
+
 }

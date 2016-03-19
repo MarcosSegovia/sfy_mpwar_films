@@ -7,7 +7,6 @@ namespace FilmApiBundle\Service;
 final class RemoveFilm
 {
 
-
     public function __construct()
     {
 
@@ -17,4 +16,5 @@ final class RemoveFilm
     {
 
     }
+
 }

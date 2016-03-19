@@ -15,15 +15,19 @@ class FilmEditCommand extends Command
 			->setName('film:edit');
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(
+		InputInterface $input,
+		OutputInterface $output
+	)
 	{
-		$name = $input->getArgument('name');
-		$year = $input->getArgument('year');
-		$date = $input->getArgument('date');
-		$url = $input->getArgument('url');
-
-		$obj_EditFilmUseCase = $this->getContainer()->get('EditFilmUseCase');
-		$obj_EditFilmUseCase($name,$year,$date,$url);
-		$output->writeln('Fet');
+		//$name = $input->getArgument('name');
+		//$year = $input->getArgument('year');
+		//$date = $input->getArgument('date');
+		//$url  = $input->getArgument('url');
+		//
+		//$obj_EditFilmUseCase = $this->getContainer()->get('EditFilmUseCase');
+		//$obj_EditFilmUseCase($name, $year, $date, $url);
+		//$output->writeln('Fet');
 	}
+
 }

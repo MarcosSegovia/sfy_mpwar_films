@@ -15,7 +15,10 @@ class FilmRemoveCommand extends Command
 			->setName('film:remove');
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(
+		InputInterface $input,
+		OutputInterface $output
+	)
 	{
 		//$id = $input->getArgument('id');
 		//
@@ -23,4 +26,5 @@ class FilmRemoveCommand extends Command
 		//$obj_RemoveFilmUseCase($id);
 		//$output->writeln('Fet');
 	}
+
 }

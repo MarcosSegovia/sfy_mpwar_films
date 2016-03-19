@@ -12,7 +12,8 @@ final class AddFilm
     private $entity_manager;
     private $event_dispatcher;
 
-    public function __construct(EntityManager $an_em, EventDispatcherInterface $an_event_dispatcher)
+    public function __construct(EntityManager $an_em,
+        EventDispatcherInterface $an_event_dispatcher)
     {
         $this->entity_manager = $an_em;
         $this->event_dispatcher = $an_event_dispatcher;

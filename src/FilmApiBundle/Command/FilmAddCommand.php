@@ -14,16 +14,20 @@ class FilmAddCommand extends Command
 		$this
 			->setName('film:add');
 	}
-	//
-	//protected function execute(InputInterface $input, OutputInterface $output)
-	//{
-	//	$name = $input->getArgument('name');
-	//	$year = $input->getArgument('year');
-	//	$date = $input->getArgument('date');
-	//	$url = $input->getArgument('url');
-	//
-	//	$obj_AddFilmUseCase = $this->getContainer()->get('AddFilmUseCase');
-	//	$obj_AddFilmUseCase($name,$year,$date,$url);
-	//	$output->writeln('Fet');
-	//}
+
+	protected function execute(
+		InputInterface $input,
+		OutputInterface $output
+	)
+	{
+		//	$name = $input->getArgument('name');
+		//	$year = $input->getArgument('year');
+		//	$date = $input->getArgument('date');
+		//	$url = $input->getArgument('url');
+		//
+		//	$obj_AddFilmUseCase = $this->getContainer()->get('AddFilmUseCase');
+		//	$obj_AddFilmUseCase($name,$year,$date,$url);
+		//	$output->writeln('Fet');
+	}
+
 }

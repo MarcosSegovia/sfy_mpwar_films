@@ -14,7 +14,13 @@ class EditFilmRequest
 
 	private $url;
 
-	public function __construct($id, $a_name, $a_year, $a_date, $an_url)
+	public function __construct(
+		$id,
+		$a_name,
+		$a_year,
+		$a_date,
+		$an_url
+	)
 	{
 		$this->id = $id;
 		$this->name = $a_name;
