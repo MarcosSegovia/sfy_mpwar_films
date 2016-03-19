@@ -21,7 +21,7 @@ final class DeleteFilm
 
 	public function __invoke(DeleteFilmRequest $request)
 	{
-		$the_film_to_delete = $this->entity_manager->find('Film', $request->id());
+		$the_film_to_delete = $this->entity_manager->find('FilmApiBundle\Entity\Film', $request->id());
 		$this->entity_manager->remove($the_film_to_delete);
 		$this->entity_manager->flush();
 	}
