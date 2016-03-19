@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class FilmAddController extends Controller
 {
     /**
-     * @Route("/film/add", name="film")
+     * @Route("/film/add", name="film-add")
      */
     public function indexAction(Request $request)
     {
@@ -19,7 +19,6 @@ class FilmAddController extends Controller
         $year = $request->get('year');
         $date = $request->get('date');
         $url = $request->get('url');
-
 
         $add_film_service = $this->get('add_film_use_case');
 
