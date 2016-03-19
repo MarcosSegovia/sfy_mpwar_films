@@ -5,6 +5,12 @@ services:
             - "@doctrine.orm.default_entity_manager"
             - "@event_dispatcher"
 
+    edit_film_use_case:
+        class: FilmApiBundle\Service\EditFilm
+        arguments:
+            - "@film_repository"
+            - "@event_dispatcher"
+
     film_repository:
         class: FilmApiBundle\Repository\FilmRepository
         factory:
