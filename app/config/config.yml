@@ -53,7 +53,7 @@ doctrine:
         mappings:
             FilmApiBundle:
                 type: yml
-                dir: Resources/config/doctrine
+                dir: Resources/mapping
 
 # Swiftmailer Configuration
 swiftmailer:
