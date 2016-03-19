@@ -11,10 +11,16 @@ services:
             - "@film_repository"
             - "@event_dispatcher"
 
+    delete_film_use_case:
+        class: FilmApiBundle\Service\DeleteFilm
+        arguments:
+            - "@doctrine.orm.default_entity_manager"
+            - "@event_dispatcher"
+
     list_films_use_case:
-            class: FilmApiBundle\Service\ListFilms
-            arguments:
-                - "@film_repository"
+        class: FilmApiBundle\Service\ListFilms
+        arguments:
+            - "@film_repository"
 
     film_repository:
         class: FilmApiBundle\Repository\FilmRepository
