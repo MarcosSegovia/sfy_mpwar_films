@@ -53,4 +53,24 @@ final class Film
     {
         return $this->url;
     }
+
+    public function setName($a_name)
+    {
+        $this->name = $a_name;
+    }
+
+    public function setYear($a_year)
+    {
+        $this->year = $a_year;
+    }
+
+    public function setDate($a_date)
+    {
+        $this->date = new DateTime($a_date);
+    }
+
+    public function setUrl($an_url)
+    {
+        $this->url = $an_url;
+    }
 }
