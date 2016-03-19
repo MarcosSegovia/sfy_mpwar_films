@@ -3,7 +3,7 @@
 namespace FilmApiBundle\Entity;
 
 use Ramsey\Uuid\Uuid;
-use Symfony\Component\Validator\Constraints\DateTime;
+use DateTime;
 
 final class Film
 {
@@ -29,7 +29,7 @@ final class Film
     public static function register($a_name, $an_year, $a_date, $an_url)
     {
         $uuid4 = Uuid::uuid4();
-        $film = new static($uuid4->toString(), $a_name, $an_year, new \DateTime($a_date), $an_url);
+        $film = new static($uuid4->toString(), $a_name, $an_year, new DateTime($a_date), $an_url);
 
         return $film;
     }
