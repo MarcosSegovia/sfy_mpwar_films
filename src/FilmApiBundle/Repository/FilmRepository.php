@@ -20,7 +20,7 @@ class FilmRepository extends EntityRepository implements FilmRepositoryInterface
 
 	public function listFilms()
 	{
-
+		return $this->findAll();
 	}
 
 }

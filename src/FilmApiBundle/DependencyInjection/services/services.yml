@@ -11,6 +11,11 @@ services:
             - "@film_repository"
             - "@event_dispatcher"
 
+    list_films_use_case:
+            class: FilmApiBundle\Service\ListFilms
+            arguments:
+                - "@film_repository"
+
     film_repository:
         class: FilmApiBundle\Repository\FilmRepository
         factory:
