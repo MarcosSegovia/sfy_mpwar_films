@@ -2,16 +2,14 @@
 
 namespace FilmApiBundle\Listener;
 
-
-use FilmApiBundle\Event\FilmAddedEvent;
-
+use FilmApiBundle\Event\FilmAdded;
 
 final class AddedFilmListener
 {
 
-    public function onFilmAdded(FilmAddedEvent $event)
-    {
-        var_dump($event);
-    }
+	public function onFilmAdded(FilmAdded $event)
+	{
+		echo 'Listener has been reached thanks to event';
+	}
 
 }
