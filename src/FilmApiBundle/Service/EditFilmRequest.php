@@ -22,11 +22,11 @@ class EditFilmRequest
 		$an_url
 	)
 	{
-		$this->id = $id;
+		$this->id   = $id;
 		$this->name = $a_name;
 		$this->year = $a_year;
 		$this->date = $a_date;
-		$this->url = $an_url;
+		$this->url  = $an_url;
 	}
 
 	public function id()
