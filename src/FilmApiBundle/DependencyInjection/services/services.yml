@@ -1,7 +1,9 @@
 services:
     add_film_use_case:
         class: FilmApiBundle\Service\AddFilm
-        arguments: ["@doctrine.orm.default_entity_manager"]
+        arguments:
+            - "@doctrine.orm.default_entity_manager"
+            - "@event_dispatcher"
 
     film_repository:
         class: FilmApiBundle\Repository\FilmRepository
@@ -10,3 +12,8 @@ services:
           - "getRepository"
         arguments:
           - "FilmApiBundle:Film"
+
+    added_film_listener:
+        class: FilmApiBundle\Listener\AddedFilmListener
+        tags:
+            - { name: kernel.event_listener, event: film.added }
