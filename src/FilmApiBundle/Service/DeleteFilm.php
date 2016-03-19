@@ -3,6 +3,7 @@
 namespace FilmApiBundle\Service;
 
 use Doctrine\ORM\EntityManager;
+use FilmApiBundle\Event\FilmDeleted;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class DeleteFilm
@@ -24,6 +25,9 @@ final class DeleteFilm
 		$the_film_to_delete = $this->entity_manager->find('FilmApiBundle\Entity\Film', $request->id());
 		$this->entity_manager->remove($the_film_to_delete);
 		$this->entity_manager->flush();
+
+		$film_deleted_event = new FilmDeleted();
+		$this->event_dispatcher->dispatch(FilmDeleted::NAME, $film_deleted_event);
 	}
 
 }
