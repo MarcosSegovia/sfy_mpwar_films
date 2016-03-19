@@ -27,8 +27,8 @@ final class AddFilm
 		$this->entity_manager->persist($film);
 		$this->entity_manager->flush();
 
-		$event = new FilmAdded();
-		$this->event_dispatcher->dispatch(FilmAdded::NAME, $event);
+		$film_added_event = new FilmAdded();
+		$this->event_dispatcher->dispatch(FilmAdded::NAME, $film_added_event);
 	}
 
 }
