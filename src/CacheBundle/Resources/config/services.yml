@@ -1,0 +1,11 @@
+added_film_listener:
+    class: CacheBundle\Service\FilmAddedListener
+    tags:
+        - { name: kernel.event_listener, event: film.added }
+
+cached_film_repository:
+    class: CacheBundle\Repository\CachedFilmRepository
+    public: false
+    decorates: film_repository
+    decoration_inner_name: film_repository.inner
+    arguments: ["@film_repository.inner"]

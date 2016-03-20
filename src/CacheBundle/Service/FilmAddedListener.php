@@ -1,10 +1,10 @@
 <?php
 
-namespace FilmApiBundle\Listener;
+namespace CacheBundle\Service;
 
 use FilmApiBundle\Event\FilmAdded;
 
-final class AddedFilmListener
+final class FilmAddedListener
 {
 
 	public function onFilmAdded(FilmAdded $event)

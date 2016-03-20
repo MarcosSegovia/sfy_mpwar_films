@@ -29,8 +29,3 @@ services:
           - "getRepository"
         arguments:
           - "FilmApiBundle:Film"
-
-    added_film_listener:
-        class: FilmApiBundle\Listener\AddedFilmListener
-        tags:
-            - { name: kernel.event_listener, event: film.added }
