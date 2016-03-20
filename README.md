@@ -1,4 +1,4 @@
-blog
+Films API
 ====
 
-A Symfony project created on March 8, 2016, 7:31 pm.
+A web/cli app to manage your personal films
