@@ -1,4 +1,4 @@
-app:
+film:
     resource: "@FilmApiBundle/Controller/"
     type:     annotation
 
