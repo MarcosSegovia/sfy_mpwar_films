@@ -71,4 +71,5 @@ class CachedFilmRepository implements FilmRepositoryInterface
 			$this->serializer->serialize($this->film_repository->listFilms(), 'json')
 		);
 	}
+
 }
