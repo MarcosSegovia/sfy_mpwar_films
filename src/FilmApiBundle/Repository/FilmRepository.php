@@ -13,14 +13,14 @@ class FilmRepository extends EntityRepository implements FilmRepositoryInterface
 		return $this->find($a_raw_id);
 	}
 
+	public function listFilms()
+	{
+		return $this->findBy(array(), array('date' => 'desc'));
+	}
+
 	public function updateFilms()
 	{
 		$this->_em->flush();
-	}
-
-	public function listFilms()
-	{
-		return $this->findAll();
 	}
 
 }

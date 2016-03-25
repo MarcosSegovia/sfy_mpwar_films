@@ -1,0 +1,12 @@
+services:
+    cached_film_repository:
+        class: CacheBundle\Repository\CachedFilmRepository
+        decorates: film_repository
+        decoration_inner_name: film_repository.inner
+        arguments:
+            - "@film_repository.inner"
+            - "@serializer"
+        tags:
+            - { name: kernel.event_listener, event: film.added }
+            - { name: kernel.event_listener, event: film.edited }
+            - { name: kernel.event_listener, event: film.deleted }

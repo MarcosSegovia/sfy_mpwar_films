@@ -7,10 +7,4 @@ use Symfony\Component\EventDispatcher\Event;
 class FilmAdded extends Event
 {
 	const NAME = 'film.added';
-
-	public function __construct()
-	{
-
-	}
-
 }
