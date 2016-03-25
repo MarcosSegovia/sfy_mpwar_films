@@ -3,16 +3,22 @@
 namespace CacheBundle\Repository;
 
 use FilmApiBundle\Entity\FilmRepositoryInterface;
+use JMS\Serializer\SerializerInterface;
 
 class CachedFilmRepository implements FilmRepositoryInterface
 {
 	private $film_repository;
-	private $array_cached_films;
+	private $serializer;
 
-	public function __construct(FilmRepositoryInterface $a_film_repository)
+	const CACHE_FILE_PATH = '/../Cache/list_films.txt';
+
+	public function __construct(
+		FilmRepositoryInterface $a_film_repository,
+		SerializerInterface $a_serializer
+	)
 	{
-		$this->film_repository    = $a_film_repository;
-		$this->array_cached_films = NULL;
+		$this->film_repository = $a_film_repository;
+		$this->serializer      = $a_serializer;
 	}
 
 	public function findById($a_raw_id)
@@ -22,13 +28,22 @@ class CachedFilmRepository implements FilmRepositoryInterface
 
 	public function listFilms()
 	{
-		dump($this->array_cached_films);
-		if ($this->array_cached_films === NULL)
+		if (!file_exists(__DIR__ . self::CACHE_FILE_PATH))
 		{
-			$this->array_cached_films = $this->film_repository->listFilms();
+			file_put_contents(__DIR__ . self::CACHE_FILE_PATH,
+				$this->serializer->serialize($this->film_repository->listFilms(), 'json')
+			);
+
+			return $this->serializer->deserialize(file_get_contents(__DIR__ . self::CACHE_FILE_PATH),
+				'array<FilmApiBundle\Entity\Film>',
+				'json'
+			);
 		}
 
-		return $this->array_cached_films;
+		return $this->serializer->deserialize(file_get_contents(__DIR__ . self::CACHE_FILE_PATH),
+			'array<FilmApiBundle\Entity\Film>',
+			'json'
+		);
 	}
 
 	public function updateFilms()
@@ -38,16 +53,22 @@ class CachedFilmRepository implements FilmRepositoryInterface
 
 	public function onFilmAdded()
 	{
-		$this->array_cached_films = $this->film_repository->listFilms();
+		file_put_contents(__DIR__ . self::CACHE_FILE_PATH,
+			$this->serializer->serialize($this->film_repository->listFilms(), 'json')
+		);
 	}
 
 	public function onFilmEdited()
 	{
-		$this->array_cached_films = $this->film_repository->listFilms();
+		file_put_contents(__DIR__ . self::CACHE_FILE_PATH,
+			$this->serializer->serialize($this->film_repository->listFilms(), 'json')
+		);
 	}
 
 	public function onFilmDeleted()
 	{
-		$this->array_cached_films = $this->film_repository->listFilms();
+		file_put_contents(__DIR__ . self::CACHE_FILE_PATH,
+			$this->serializer->serialize($this->film_repository->listFilms(), 'json')
+		);
 	}
 }
