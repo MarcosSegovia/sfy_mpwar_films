@@ -3,6 +3,7 @@
 namespace FilmApiBundle\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -11,8 +12,35 @@ class FilmEditCommand extends Command
 
 	protected function configure()
 	{
-		$this
-			->setName('film:edit');
+        $this
+            ->setName('film:edit')
+            ->setDescription('Edit a registered film')
+            ->addArgument(
+                'id',
+                InputArgument::REQUIRED,
+                'Film unique id'
+            )
+            ->addArgument(
+                'name',
+                InputArgument::REQUIRED,
+                'Film name'
+            )
+            ->addArgument(
+                'year',
+                InputArgument::REQUIRED,
+                'Release year'
+            )
+            ->addArgument(
+                'date',
+                InputArgument::REQUIRED,
+                'Full release date'
+            )
+            ->addArgument(
+                'url',
+                InputArgument::REQUIRED,
+                'Film profile url'
+            )
+        ;
 	}
 
 	protected function execute(

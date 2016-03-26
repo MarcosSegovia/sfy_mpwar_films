@@ -3,16 +3,24 @@
 namespace FilmApiBundle\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class FilmRemoveCommand extends Command
+class FilmDeleteCommand extends Command
 {
 
 	protected function configure()
 	{
-		$this
-			->setName('film:remove');
+        $this
+            ->setName('film:delete')
+            ->setDescription('Delete a registered film')
+            ->addArgument(
+                'id',
+                InputArgument::REQUIRED,
+                'Film unique id'
+            )
+        ;
 	}
 
 	protected function execute(
