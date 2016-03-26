@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use FilmApiBundle\Service\DeleteFilmRequest;
 
 class FilmDeleteCommand extends ContainerAwareCommand
 {
@@ -28,11 +29,14 @@ class FilmDeleteCommand extends ContainerAwareCommand
 		OutputInterface $output
 	)
 	{
-		//$id = $input->getArgument('id');
-		//
-		//$obj_RemoveFilmUseCase= $this->getContainer()->get('RemoveFilmUsecase');
-		//$obj_RemoveFilmUseCase($id);
-		//$output->writeln('Fet');
+        $delete_film_service = $this->getContainer()->get('delete_film_use_case');
+
+        $id = $input->getArgument('id');
+
+        $delete_film_request = new DeleteFilmRequest($id);
+        $delete_film_service->__invoke($delete_film_request);
+
+        $output->writeln('OK');
 	}
 
 }
