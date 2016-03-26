@@ -45,6 +45,11 @@ final class Film
 		return $film;
 	}
 
+    public function id()
+    {
+        return $this->id;
+    }
+
 	public function name()
 	{
 		return $this->name;
