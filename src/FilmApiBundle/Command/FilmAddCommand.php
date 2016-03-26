@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use FilmApiBundle\Service\AddFilmRequest;
 
 class FilmAddCommand extends ContainerAwareCommand
 {
@@ -43,14 +44,17 @@ class FilmAddCommand extends ContainerAwareCommand
 		OutputInterface $output
 	)
 	{
-		//	$name = $input->getArgument('name');
-		//	$year = $input->getArgument('year');
-		//	$date = $input->getArgument('date');
-		//	$url = $input->getArgument('url');
-		//
-		//	$obj_AddFilmUseCase = $this->getContainer()->get('AddFilmUseCase');
-		//	$obj_AddFilmUseCase($name,$year,$date,$url);
-		//	$output->writeln('Fet');
+        $add_film_service = $this->getContainer()->get('add_film_use_case');
+
+        $name = $input->getArgument('name');
+        $year = $input->getArgument('year');
+        $date = $input->getArgument('date');
+        $url  = $input->getArgument('url');
+
+        $add_film_request = new AddFilmRequest($name, $year, $date, $url);
+        $add_film_service->__invoke($add_film_request);
+
+        $output->writeln('OK');
 	}
 
 }
