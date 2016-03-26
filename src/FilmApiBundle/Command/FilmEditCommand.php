@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use FilmApiBundle\Service\EditFilmRequest;
 
 class FilmEditCommand extends ContainerAwareCommand
 {
@@ -48,14 +49,18 @@ class FilmEditCommand extends ContainerAwareCommand
 		OutputInterface $output
 	)
 	{
-		//$name = $input->getArgument('name');
-		//$year = $input->getArgument('year');
-		//$date = $input->getArgument('date');
-		//$url  = $input->getArgument('url');
-		//
-		//$obj_EditFilmUseCase = $this->getContainer()->get('EditFilmUseCase');
-		//$obj_EditFilmUseCase($name, $year, $date, $url);
-		//$output->writeln('Fet');
+        $edit_film_service = $this->getContainer()->get('edit_film_use_case');
+
+        $id   = $input->getArgument('id');
+        $name = $input->getArgument('name');
+        $year = $input->getArgument('year');
+        $date = $input->getArgument('date');
+        $url  = $input->getArgument('url');
+
+        $edit_film_request = new EditFilmRequest($id, $name, $year, $date, $url);
+        $edit_film_service->__invoke($edit_film_request);
+
+        $output->writeln('OK');
 	}
 
 }
