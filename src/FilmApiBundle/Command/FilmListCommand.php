@@ -3,27 +3,25 @@
 namespace FilmApiBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
 
 class FilmListCommand extends ContainerAwareCommand
 {
 
-	protected function configure()
-	{
+    protected function configure()
+    {
         $this
             ->setName('film:list')
-            ->setDescription('List all registered films')
-        ;
-	}
+            ->setDescription('List all registered films');
+    }
 
-	protected function execute(
-		InputInterface $input,
-		OutputInterface $output
-	)
-	{
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    )
+    {
         $list_films_service = $this->getContainer()->get('list_films_use_case');
         $result = $list_films_service->__invoke();
 
@@ -34,7 +32,7 @@ class FilmListCommand extends ContainerAwareCommand
         $table->addRows($prepared_table_rows);
 
         $table->render();
-	}
+    }
 
     protected function prepareFilmList(
         array $a_film_list
