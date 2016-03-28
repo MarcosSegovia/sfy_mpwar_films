@@ -1,8 +1,0 @@
-FilmApiBundle\Entity\Film:
-    getters:
-        name:
-            - NotBlank:
-        year:
-            - NotBlank:
-        url:
-            - NotBlank:
