@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class FilmDeleteController extends Controller
 {
-    /**
-     * @Route("/film/delete", name="homepage")
-     */
+
     public function indexAction(Request $request)
     {
         $id = $request->get('id');

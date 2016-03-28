@@ -22,6 +22,11 @@ services:
         arguments:
             - "@film_repository"
 
+    show_films_use_case:
+        class: FilmApiBundle\Service\ShowFilm
+        arguments:
+            - "@film_repository"
+
     film_repository:
         class: FilmApiBundle\Repository\FilmRepository
         factory:

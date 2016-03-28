@@ -1,7 +1,6 @@
 film:
-    resource: "@FilmApiBundle/Controller/"
-    type:     annotation
+    resource: "@FilmApiBundle/Resources/config/routing.yml"
 
 _welcome:
     path:      /
-    defaults:  { _controller: FilmApiBundle:AddFilm:index }
+    defaults:  { _controller: FilmApiBundle:FilmList:all }

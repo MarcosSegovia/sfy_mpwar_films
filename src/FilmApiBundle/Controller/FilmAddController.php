@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class FilmAddController extends Controller
 {
-    /**
-     * @Route("/film/add", name="film-add")
-     */
+
     public function indexAction(Request $request)
     {
         $name = $request->get('name');
