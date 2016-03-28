@@ -3,7 +3,6 @@
 namespace FilmApiBundle\Entity;
 
 use DateTime;
-use Ramsey\Uuid\Uuid;
 
 final class Film
 {
@@ -25,7 +24,7 @@ final class Film
         $an_url
     )
     {
-        $this->id = $an_id;
+        $this->id = new FilmId($an_id);
         $this->name = $a_name;
         $this->year = $an_year;
         $this->date = $a_date;
@@ -39,15 +38,15 @@ final class Film
         $an_url
     )
     {
-        $uuid4 = Uuid::uuid4();
-        $film = new static($uuid4->toString(), $a_name, $an_year, new DateTime($a_date), $an_url);
+        $film_id = new FilmId();
+        $film = new static($film_id->id(), $a_name, $an_year, new DateTime($a_date), $an_url);
 
         return $film;
     }
 
     public function id()
     {
-        return $this->id;
+        return $this->id->id();
     }
 
     public function name()
