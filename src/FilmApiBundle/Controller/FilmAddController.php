@@ -12,10 +12,10 @@ class FilmAddController extends Controller
 
     public function indexAction(Request $request)
     {
-        $name = $request->get('name');
-        $year = $request->get('year');
-        $date = $request->get('date');
-        $url = $request->get('url');
+        $name = $request->query->get('name');
+        $year = $request->query->get('year');
+        $date = $request->query->get('date');
+        $url = $request->query->get('url');
 
         $add_film_service = $this->get('add_film_use_case');
 

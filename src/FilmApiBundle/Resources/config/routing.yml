@@ -1,24 +1,24 @@
-film_api_add:
-    path:  /film/add
-    defaults: { _controller: FilmApiBundle:FilmAdd:index, _format: ~ }
-film_api_delete:
-    path:  /film/delete
-    defaults: { _controller: FilmApiBundle:FilmDelete:index, _format: ~ }
-film_api_edit:
-    path:  /film/edit
-    defaults: { _controller: FilmApiBundle:FilmEdit:index, _format: ~ }
-
-
 film_api_list_all:
-    path:  /api/films
+    path:  /films
     defaults: { _controller: FilmApiBundle:FilmList:all }
     methods:  [GET]
-    requirements:
-          _format:  json
 
 film_api_list_get:
-    path:  /api/films/{id}
+    path:  /films/{id}
     defaults: { _controller: FilmApiBundle:FilmList:get }
     methods:  [GET]
-    requirements:
-          _format:  json
+
+film_api_add_new:
+    path:  /films/add
+    defaults: { _controller: FilmApiBundle:FilmAdd:index }
+    methods:  [POST]
+
+film_api_delete:
+    path:  /films/delete/{id}
+    defaults: { _controller: FilmApiBundle:FilmDelete:index }
+    methods:  [DELETE]
+
+film_api_edit:
+    path:  /films/edit/{id}
+    defaults: { _controller: FilmApiBundle:FilmEdit:index }
+    methods:  [PUT]

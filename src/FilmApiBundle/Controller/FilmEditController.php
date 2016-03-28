@@ -13,10 +13,10 @@ class FilmEditController extends Controller
     public function indexAction(Request $request)
     {
         $id = $request->get('id');
-        $name = $request->get('name');
-        $year = $request->get('year');
-        $date = $request->get('date');
-        $url = $request->get('url');
+        $name = $request->query->get('name');
+        $year = $request->query->get('year');
+        $date = $request->query->get('date');
+        $url = $request->query->get('url');
 
         $edit_film_service = $this->get('edit_film_use_case');
         $new_edit_film_request = new EditFilmRequest($id, $name, $year, $date, $url);
