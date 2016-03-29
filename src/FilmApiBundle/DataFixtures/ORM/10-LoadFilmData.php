@@ -23,10 +23,10 @@ class LoadFilmData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
 
-        $the_film = Film::register('Batman v. Superman: Dawn of Justice', 2016, null, 'https://www.filmaffinity.com/es/film300113.html');
+        $the_film = new Film('1','Batman v. Superman: Dawn of Justice', 2016, new \DateTime('now'), 'https://www.filmaffinity.com/es/film300113.html');
         $manager->persist($the_film);
 
-        $the_film_2 = Film::register('My Big Fat Greek Wedding 2', 2016, null, 'https://www.filmaffinity.com/es/film904175.html');
+        $the_film_2 = new Film('2','My Big Fat Greek Wedding 2', 2016, new \DateTime('now'), 'https://www.filmaffinity.com/es/film904175.html');
         $manager->persist($the_film_2);
 
         $manager->flush();

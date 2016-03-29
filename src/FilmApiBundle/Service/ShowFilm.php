@@ -23,7 +23,6 @@ final class ShowFilm
         $result = null;
         try {
             $result = $this->entity_repository->findById($an_id);
-
         } catch (\Exception $ex) {
             FilmException::throwBecauseOf("Caught exception: " . $ex->getMessage() . "\n");
         } finally {

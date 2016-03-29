@@ -7,23 +7,9 @@ use FilmApiBundle\Service\AddFilmRequest;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class AddFilmTest extends KernelTestCase
+class AddFilmTest extends BaseFilmServiceTest
 {
 
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function setUp()
-    {
-        self::bootKernel();
-
-        $this->container = static::$kernel->getContainer();
-    }
 
     public function testAddFilm()
     {
@@ -40,6 +26,7 @@ class AddFilmTest extends KernelTestCase
         $add_film_request = new AddFilmRequest($name, $year, $date, $url);
         $add_film_service->__invoke($add_film_request);
 
+
         $result2 = $list_films_service->__invoke();
 
         $expected = count($result) + 1;
@@ -47,11 +34,5 @@ class AddFilmTest extends KernelTestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    protected function tearDown()
-    {
-        parent::tearDown();
-    }
+
 }

@@ -21,7 +21,6 @@ final class ListFilms
         $result = null;
         try {
             $result = $this->entity_repository->listFilms();
-
         } catch (\Exception $ex) {
             FilmException::throwBecauseOf("Caught exception: " . $ex->getMessage() . "\n");
         } finally {

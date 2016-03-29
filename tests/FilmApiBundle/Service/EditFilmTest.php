@@ -7,23 +7,10 @@ namespace Tests\FilmApiBundle\Service;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class EditFilmTest extends KernelTestCase
+class EditFilmTest extends BaseFilmServiceTest
 {
 
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
 
-    /**
-     * {@inheritDoc}
-     */
-    protected function setUp()
-    {
-        self::bootKernel();
-
-        $this->container = static::$kernel->getContainer();
-    }
 
     public function testEditFilm()
     {
@@ -31,11 +18,5 @@ class EditFilmTest extends KernelTestCase
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    protected function tearDown()
-    {
-        parent::tearDown();
-    }
+
 }
