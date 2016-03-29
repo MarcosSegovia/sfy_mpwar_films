@@ -3,29 +3,26 @@
 namespace FilmApiBundle\Controller;
 
 use FilmApiBundle\Service\EditFilmRequest;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class FilmEditController extends Controller
 {
-	/**
-	 * @Route("/film/edit", name="film-edit")
-	 */
-	public function indexAction(Request $request)
-	{
-		$id   = $request->get('id');
-		$name = $request->get('name');
-		$year = $request->get('year');
-		$date = $request->get('date');
-		$url  = $request->get('url');
 
-		$edit_film_service     = $this->get('edit_film_use_case');
-		$new_edit_film_request = new EditFilmRequest($id, $name, $year, $date, $url);
-		$edit_film_service->__invoke($new_edit_film_request);
+    public function indexAction(Request $request)
+    {
+        $id = $request->get('id');
+        $name = $request->query->get('name');
+        $year = $request->query->get('year');
+        $date = $request->query->get('date');
+        $url = $request->query->get('url');
 
-		return new JsonResponse(array('message' => 'OK'));
-	}
+        $edit_film_service = $this->get('edit_film_use_case');
+        $new_edit_film_request = new EditFilmRequest($id, $name, $year, $date, $url);
+        $edit_film_service->__invoke($new_edit_film_request);
+
+        return new JsonResponse(array('message' => 'OK'));
+    }
 
 }

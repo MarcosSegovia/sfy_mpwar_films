@@ -10,16 +10,16 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 class FilmApiExtension extends Extension
 {
 
-	public function load(
-		array $configs,
-		ContainerBuilder $container
-	)
-	{
-		$loader = new YamlFileLoader(
-			$container,
-			new FileLocator(__DIR__ . '/services')
-		);
-		$loader->load('services.yml');
-	}
+    public function load(
+        array $configs,
+        ContainerBuilder $container
+    )
+    {
+        $loader = new YamlFileLoader(
+            $container,
+            new FileLocator(__DIR__ . '/services')
+        );
+        $loader->load('services.yml');
+    }
 
 }
