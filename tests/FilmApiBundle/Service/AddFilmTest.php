@@ -4,8 +4,6 @@ namespace Tests\FilmApiBundle\Service;
 
 
 use FilmApiBundle\Service\AddFilmRequest;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class AddFilmTest extends BaseFilmServiceTest
 {

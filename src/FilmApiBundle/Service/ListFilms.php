@@ -3,7 +3,6 @@
 namespace FilmApiBundle\Service;
 
 use FilmApiBundle\Entity\FilmRepositoryInterface;
-use FilmApiBundle\Exceptions\FilmException;
 
 final class ListFilms
 {
@@ -18,14 +17,7 @@ final class ListFilms
 
     public function __invoke()
     {
-        $result = null;
-        try {
-            $result = $this->entity_repository->listFilms();
-        } catch (\Exception $ex) {
-            FilmException::throwBecauseOf("Caught exception: " . $ex->getMessage() . "\n");
-        } finally {
-            return $result;
-        }
+        return $this->entity_repository->listFilms();
     }
 
 }

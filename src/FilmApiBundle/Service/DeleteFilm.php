@@ -4,7 +4,6 @@ namespace FilmApiBundle\Service;
 
 use Doctrine\ORM\EntityManager;
 use FilmApiBundle\Event\FilmDeleted;
-use FilmApiBundle\Exceptions\FilmException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class DeleteFilm
@@ -23,17 +22,12 @@ final class DeleteFilm
 
     public function __invoke(DeleteFilmRequest $request)
     {
-        try {
-            $the_film_to_delete = $this->entity_manager->find('FilmApiBundle\Entity\Film', $request->id());
-            $this->entity_manager->remove($the_film_to_delete);
-            $this->entity_manager->flush();
+        $the_film_to_delete = $this->entity_manager->find('FilmApiBundle\Entity\Film', $request->id());
+        $this->entity_manager->remove($the_film_to_delete);
+        $this->entity_manager->flush();
 
-            $film_deleted_event = new FilmDeleted();
-            $this->event_dispatcher->dispatch(FilmDeleted::NAME, $film_deleted_event);
-
-        } catch (\Exception $ex) {
-            FilmException::throwBecauseOf("Caught exception: " . $ex->getMessage() . "\n");
-        }
+        $film_deleted_event = new FilmDeleted();
+        $this->event_dispatcher->dispatch(FilmDeleted::NAME, $film_deleted_event);
     }
 
 }

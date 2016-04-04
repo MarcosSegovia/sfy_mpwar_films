@@ -5,7 +5,6 @@ namespace FilmApiBundle\Service;
 
 
 use FilmApiBundle\Entity\FilmRepositoryInterface;
-use FilmApiBundle\Exceptions\FilmException;
 
 final class ShowFilm
 {
@@ -20,13 +19,6 @@ final class ShowFilm
 
     public function __invoke($an_id)
     {
-        $result = null;
-        try {
-            $result = $this->entity_repository->findById($an_id);
-        } catch (\Exception $ex) {
-            FilmException::throwBecauseOf("Caught exception: " . $ex->getMessage() . "\n");
-        } finally {
-            return $result;
-        }
+        return $this->entity_repository->findById($an_id);
     }
 }
